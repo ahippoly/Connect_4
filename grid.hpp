@@ -41,16 +41,16 @@ bool grid::is_dir_filled(int &pos_x, int &pos_y, int &size, char &coin, int dir_
     int end_x = -1;
     int end_y = -1;
 
-    dir_x = min(max(dir_x, -1), 1);
-    dir_y = min(max(dir_y, -1), 1);
+    dir_x = std::min(std::max(dir_x, -1), 1);
+    dir_y = std::min(std::max(dir_y, -1), 1);
     if (dir_x == 1)
-        end_x = min(pos_x + size, this->w);
+        end_x = std::min(pos_x + size, this->w);
     if (dir_y == 1)
-        end_y = min(pos_y + size, this->h);
+        end_y = std::min(pos_y + size, this->h);
     if (dir_x == -1)
-        end_x = max(pos_x - size, -1);
+        end_x = std::max(pos_x - size, -1);
     if (dir_y == -1)
-        end_y = max(pos_y - size, -1);
+        end_y = std::max(pos_y - size, -1);
 
     for (int i = pos_x, j = pos_y; i != end_x && j != end_y; i += dir_x, j += dir_y)
     {
